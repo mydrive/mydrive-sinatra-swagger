@@ -2,14 +2,12 @@ $LOAD_PATH << "lib"
 require "sinatra/swagger/version"
 
 Gem::Specification.new do |s|
-  s.name = "sinatra-swagger"
+  s.name = "mydrive-sinatra-swagger"
   s.version = Sinatra::Swagger::VERSION
   s.summary = "Integrates Swagger 2.0 documentation with Sinatra"
   s.description = "Provides helper functions for accessing Swagger documentation from within a Sinatra webapp."
-  s.author = "JP Hastings-Spital"
-  s.email = "jphastings@gmail.com"
-  s.homepage = "http://github.com/jphastings/sinatra-swagger"
-  s.license = "MIT"
+  s.author = ["MyDrive Solutions Ltd"]
+  s.homepage = "http://github.com/mydrive/sinatra-swagger"
 
   s.files = `git ls-files`.split($/)
   s.executables = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
