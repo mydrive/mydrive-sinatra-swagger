@@ -29,7 +29,7 @@ module Sinatra
           schema = swagger_spec[:spec]
           path.split("/").each do |key|
             schema = schema[YAML.load(key)]
-            raise "No schema response matching path: #{path} for #{request_verb} #{request_path}" if schema.nil?
+            raise "No response schema matching path: #{path} for #{request_verb} #{request_path}" if schema.nil?
           end
           schema['definitions'] = settings.swagger['definitions'] if settings.swagger['definitions']
           schema
