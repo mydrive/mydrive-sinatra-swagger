@@ -12,6 +12,14 @@ module Sinatra
       end
 
       module Helpers
+        def request_path
+          env['REQUEST_PATH'] || env['PATH_INFO']
+        end
+
+        def request_verb
+          env['REQUEST_METHOD'].downcase
+        end
+
         def swagger_spec
           raise "No swagger file loaded" unless settings.swagger
           settings.swagger.request_spec(env: env)
@@ -21,7 +29,7 @@ module Sinatra
           schema = swagger_spec[:spec]
           path.split("/").each do |key|
             schema = schema[YAML.load(key)]
-            return if schema.nil?
+            raise "No schema response matching path: #{path} for #{request_verb} #{request_path}" if schema.nil?
           end
           schema['definitions'] = settings.swagger['definitions'] if settings.swagger['definitions']
           schema
