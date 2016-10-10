@@ -2,7 +2,7 @@ $LOAD_PATH << "lib"
 require "sinatra/swagger/version"
 
 Gem::Specification.new do |s|
-  s.name = "sinatra-swagger"
+  s.name = "mydrive-sinatra-swagger"
   s.version = Sinatra::Swagger::VERSION
   s.summary = "Integrates Swagger 2.0 documentation with Sinatra"
   s.description = "Provides helper functions for accessing Swagger documentation from within a Sinatra webapp."
