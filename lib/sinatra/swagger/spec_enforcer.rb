@@ -6,7 +6,7 @@ module Sinatra
       def self.registered(app)
         app.register Swagger::SwaggerLinked
 
-        app.after do  
+        app.after do
           next unless response.content_type =~ %r{^application/(?:.+\+)?json$}
           next unless body = JSON.parse(response.body.first) rescue nil
           next if swagger_spec.nil?
