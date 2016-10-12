@@ -18,7 +18,7 @@ module Swagger
 
       case matching_paths.size
       when 0
-        return nil
+        raise "No matching schema for request: #{verb} #{path}"
       when 1
         return matching_paths.first
       else
